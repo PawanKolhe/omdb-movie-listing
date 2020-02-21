@@ -5,34 +5,32 @@
 
       <div>
         <div class="modal-title">{{ title }}</div>
-        <a class="repo-link" target="_blank">
-          <div class="modal-repo"><!-- repo fullname --></div>
-        </a>
-        <div class="modal-sub-container">
+        <div v-if="movieDetail.imdbRating" class="imdbRating"><span class="imdb">IMDb</span>{{ movieDetail.imdbRating }}</div>
+        <div v-if="movieDetail.Plot" class="modal-sub-container">
           <div class="modal-sub-title">Plot</div>
-          <div class="modal-desc">{{ movieDetail.Plot }}</div>
+          <div>{{ movieDetail.Plot }}</div>
         </div>
         <div class="modal-box">
           <div class="modal-col gs-modal-col-3">
-            <div class="modal-sub-container">
+            <div v-if="movieDetail.Director" class="modal-sub-container">
               <div class="modal-sub-title">Director</div>
               <div>{{ movieDetail.Director }}</div>
             </div>
-            <div class="modal-sub-container">
+            <div v-if="movieDetail.Writer" class="modal-sub-container">
               <div class="modal-sub-title">Writers</div>
               <div>{{ movieDetail.Writer }}</div>
             </div>
-            <div class="modal-sub-container">
+            <div v-if="movieDetail.Actors" class="modal-sub-container">
               <div class="modal-sub-title">Actors</div>
               <div>{{ movieDetail.Actors }}</div>
             </div>
           </div>
           <div class="modal-col gs-modal-col-1">
-            <div class="modal-sub-container">
+            <div v-if="movieDetail.Runtime" class="modal-sub-container">
               <div class="modal-sub-title">Runtime</div>
               <div>{{ movieDetail.Runtime }}</div>
             </div>
-            <div class="modal-sub-container">
+            <div v-if="movieDetail.Ratings" class="modal-sub-container">
               <a target="_blank">
                 <div class="modal-sub-title">Rating</div>
                 <div v-for="(rating, index) in movieDetail.Ratings" :key="index">{{ rating.Source }} - {{ rating.Value }}</div>
@@ -167,6 +165,25 @@ export default {
   width: 100px;
 }
 
+.imdbRating {
+  margin-top: 5px;
+  background: #F5C518;
+  color: #212121;
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-family: var(--font-family-2);
+}
+.imdbRating .imdb {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: lighter;
+  margin-right: 5px;
+}
+
 
 @media (max-width: 700px) {
   .modal-title {
@@ -177,6 +194,9 @@ export default {
   }
   .modal-sub-title {
     font-size: 1.3rem;
+  }
+  .modal {
+    padding: 30px 20px;
   }
 }
 @media (max-width: 500px) {

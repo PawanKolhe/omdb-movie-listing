@@ -1,7 +1,7 @@
 <template>
   <div class="movie">
-    <div class="movie-poster">
-      <img @click="openModal" :src="poster">
+    <div @click="openModal" class="movie-poster">
+      <img :src="poster">
     </div>
     <div class="movie-text">
       <div @click="openModal" class="movie-title">{{ title }}</div>
@@ -41,12 +41,17 @@ export default {
     },
     imdbID: {
       type: String
+    },
+    modalDisable: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     openModal() {
-      console.log(this);
-      this.modalVisible = !this.modalVisible;
+      if(!this.modalDisable) {
+        this.modalVisible = !this.modalVisible;
+      }
     }
   },
   mounted() {
@@ -69,6 +74,9 @@ export default {
   border-radius: 5px;
   cursor: pointer;
 }
+.movie-poster:hover {
+  border: 5px solid #8BC34A;
+}
 .movie-poster img {
   width: 100%;
   height: auto;
@@ -85,9 +93,16 @@ export default {
   cursor: pointer;
   word-break: break-word;
 }
+.movie-title:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
 .movie-year {
   color: rgb(99, 131, 163);
   font-size: 1.1rem;
   margin-top: 5px;
+}
+
+@media (max-width: 700px) {
+  
 }
 </style>

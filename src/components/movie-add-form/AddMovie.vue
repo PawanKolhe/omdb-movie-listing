@@ -5,7 +5,7 @@
       <div class="form-container">
         <div class="preview">
           <h3>Preview</h3>
-          <omdb-movie-card :title="title" :poster="getPoster" />
+          <omdb-movie-card :title="title" :poster="getPoster" :modalDisable="true" />
         </div>
         <add-movie-form @titleChange="title = $event" @posterChange="poster = $event" @addMovie="addMovieToListing" :title="title" :poster="poster" />
       </div>
@@ -70,6 +70,7 @@ export default {
 .preview h3 {
   text-align: left;
   font-weight: lighter;
+  color: rgb(69, 123, 177);
 }
 
 .preview .movie {
