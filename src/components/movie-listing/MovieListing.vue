@@ -44,6 +44,7 @@ export default {
   opacity: 0.03;
   width: 200px;
   height: auto;
+  user-select: none;
 }
 .backimage2 {
   position: absolute;
@@ -52,6 +53,7 @@ export default {
   opacity: 0.03;
   width: 200px;
   height: auto;
+  user-select: none;
 }
 .backimage3 {
   position: absolute;
@@ -60,5 +62,6 @@ export default {
   opacity: 0.03;
   width: 200px;
   height: auto;
+  user-select: none;
 }
 </style>

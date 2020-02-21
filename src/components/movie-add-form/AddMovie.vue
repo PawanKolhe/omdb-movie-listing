@@ -1,7 +1,7 @@
 <template>
   <div id="addMovieForm" class="section">
     <div class="container">
-      <h2 class="sub-heading">Add Movie</h2>
+      <h2 class="sub-heading"><span class="iconify" data-icon="mdi:video-plus-outline" data-inline="false"></span>Add Movie</h2>
       <div class="form-container">
         <div class="preview">
           <h3>Preview</h3>
@@ -47,7 +47,6 @@ export default {
   display: flex;
   flex-direction: column;
   flex: auto;
-  padding: 30px;
   position: relative;
 }
 #addMovieForm .form-container {
@@ -62,6 +61,13 @@ export default {
   color: #ffffff;
   margin-bottom: 30px;
   font-family: var(--font-family-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sub-heading .iconify {
+  margin-right: 10px;
+  font-size: 3.5rem;
 }
 
 .preview h3 {

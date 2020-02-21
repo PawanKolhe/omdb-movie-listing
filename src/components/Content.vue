@@ -52,11 +52,17 @@ export default {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0px 40px;
 }
 
 @media only screen and (max-width: 800px) {
   .container {
     width: 100%;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .container {
+    padding: 0px 20px;
   }
 }
 </style>
