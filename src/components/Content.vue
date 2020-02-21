@@ -1,25 +1,25 @@
 <template>
   <div id="content">
-    <div class="container">
-      <omdb-movie-listing />
-    </div>
+    <omdb-movie-listing />
+    <omdb-add-movie />
   </div>
 </template>
 
 <script>
-import MovieListing from './MovieListing'
+import MovieListing from './movie-listing/MovieListing.vue'
+import AddMovie from './movie-add-form/AddMovie.vue'
 
 export default {
   name: 'Content',
   components: {
-    'omdb-movie-listing': MovieListing
+    'omdb-movie-listing': MovieListing,
+    'omdb-add-movie': AddMovie
   }
 }
 </script>
 
 <style>
 #content {
-  padding: 60px 0;
   background-color: rgb(15, 38, 61);
 }
 
@@ -27,16 +27,10 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
 }
-.container .row:first-child {
-  margin-top: 0px;
-}
-.container .row:last-child {
-  margin-bottom: 0px;
-}
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   #content {
     padding: 100px 0;
   }
-}
+} */
 </style>

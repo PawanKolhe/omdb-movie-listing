@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   data() {
@@ -19,13 +19,27 @@ export default {
       movieDetail: {}
     }
   },
-  name: 'Movie',
-  props: ['title', 'poster', 'year', 'imdbID'],
+  name: 'MovieCard',
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    poster: {
+      type: String,
+      required: true
+    },
+    year: {
+      type: String
+    },
+    imdbID: {
+      type: String
+    }
+  },
   mounted() {
-    // 
-    axios
-      .get(`http://www.omdbapi.com/?i=${this.imdbID}&apikey=e0620bd4`)
-      .then(response => (this.movieDetail = response.data));
+    // axios
+    //   .get(`http://www.omdbapi.com/?i=${this.imdbID}&apikey=e0620bd4`)
+    //   .then(response => (this.movieDetail = response.data));
   }
 }
 </script>
@@ -40,6 +54,8 @@ export default {
   margin-bottom: 5px;
   border: 5px solid #fff;
   border-radius: 5px;
+  cursor: pointer;
+  /* min-width: 200px; */
 }
 .movie-poster img {
   width: 100%;
@@ -47,13 +63,15 @@ export default {
 }
 .movie-text {
   padding: 5px 0;
-  text-align: left
+  text-align: left;
+  
 }
 .movie-title {
   font-size: 1.3rem;
   color: #fff;
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
+  cursor: pointer;
 }
 .movie-year {
   color: rgb(99, 131, 163);

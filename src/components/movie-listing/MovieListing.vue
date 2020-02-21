@@ -1,11 +1,13 @@
 <template>
-  <div class="movie-listing">
-    <omdb-movie v-for="(movie, index) in getMovies" :key="index" :title="movie.Title" :poster="movie.Poster" :year="movie.Year" :imdbID="movie.imdbID" />
+  <div class="movie-listing section">
+    <div class="container">
+      <omdb-movie-card v-for="(movie, index) in getMovies" :key="index" :title="movie.Title" :poster="movie.Poster" :year="movie.Year" :imdbID="movie.imdbID" />
+    </div>
   </div>
 </template>
 
 <script>
-import Movie from './Movie.vue'
+import MovieCard from './MovieCard.vue'
 
 import axios from 'axios';
 
@@ -17,7 +19,7 @@ export default {
   },
   name: 'MovieListing',
   components: {
-    'omdb-movie': Movie
+    'omdb-movie-card': MovieCard
   },
   computed: {
     getMovies() {
@@ -33,7 +35,7 @@ export default {
 </script>
 
 <style>
-.movie-listing {
+.movie-listing .container {
   padding: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));

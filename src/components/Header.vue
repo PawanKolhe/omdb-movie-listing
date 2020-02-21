@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="nav">
-      <img :src="logo">
+      <img class="logo" :src="logo">
     </div>
   </div>
 </template>
@@ -24,6 +24,10 @@ export default {
 .header {
   background-color: rgb(10, 25, 41);
   color: #fff;
+}
+
+.logo{
+  cursor: pointer;
 }
 
 .nav {
