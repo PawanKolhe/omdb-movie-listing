@@ -2,7 +2,7 @@
   <div id="app">
     <omdb-header />
     <omdb-content />
-    <omdb-footer />  
+    <omdb-footer />
   </div>
 </template>
 
@@ -22,6 +22,11 @@ export default {
 </script>
 
 <style>
+:root {
+  --font-family-1: 'Roboto Condensed', sans-serif;
+  --font-family-2: 'Nunito', sans-serif;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

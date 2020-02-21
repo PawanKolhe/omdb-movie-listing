@@ -1,23 +1,30 @@
 <template>
   <div class="movie">
     <div class="movie-poster">
-      <img :src="poster">
+      <img @click="openModal" :src="poster">
     </div>
     <div class="movie-text">
-      <div class="movie-title">{{ title }}</div>
+      <div @click="openModal" class="movie-title">{{ title }}</div>
       <div class="movie-year">{{ year }}</div>
+      <modal :modalVisible="modalVisible" :title="title" :poster="poster" :movieDetail="movieDetail" @closeModal="modalVisible = $event" />
     </div>
   </div>
 </template>
 
 <script>
-// import axios from 'axios';
+import Modal from './Modal.vue';
+
+import axios from 'axios';
 
 export default {
   data() {
     return {
-      movieDetail: {}
+      movieDetail: {},
+      modalVisible: false
     }
+  },
+  components: {
+    'modal': Modal
   },
   name: 'MovieCard',
   props: {
@@ -36,10 +43,16 @@ export default {
       type: String
     }
   },
+  methods: {
+    openModal() {
+      console.log(this);
+      this.modalVisible = !this.modalVisible;
+    }
+  },
   mounted() {
-    // axios
-    //   .get(`http://www.omdbapi.com/?i=${this.imdbID}&apikey=e0620bd4`)
-    //   .then(response => (this.movieDetail = response.data));
+    axios
+      .get(`http://www.omdbapi.com/?i=${this.imdbID}&apikey=e0620bd4`)
+      .then(response => (this.movieDetail = response.data));
   }
 }
 </script>
@@ -55,7 +68,6 @@ export default {
   border: 5px solid #fff;
   border-radius: 5px;
   cursor: pointer;
-  /* min-width: 200px; */
 }
 .movie-poster img {
   width: 100%;
@@ -64,14 +76,14 @@ export default {
 .movie-text {
   padding: 5px 0;
   text-align: left;
-  
 }
 .movie-title {
   font-size: 1.3rem;
   color: #fff;
   font-weight: bold;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: var(--font-family-1);
   cursor: pointer;
+  word-break: break-word;
 }
 .movie-year {
   color: rgb(99, 131, 163);
