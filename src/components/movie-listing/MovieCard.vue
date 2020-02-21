@@ -1,7 +1,10 @@
 <template>
   <div class="movie">
     <div @click="openModal" class="movie-poster">
-      <img :src="poster">
+      <img :src="poster ? poster : ''">
+      <div class="overlay" :class="{ overlayDisable: modalDisable }">
+        <button>More Details</button>
+      </div>
     </div>
     <div class="movie-text">
       <div @click="openModal" class="movie-title">{{ title }}</div>
@@ -67,14 +70,49 @@ export default {
   overflow: hidden;
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.overlay button {
+  font-size: 1.1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #8BC34A;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.overlayDisable {
+  display: none;
+}
+.overlayDisable button {
+  display: none;
+}
+
+.movie:hover .overlay {
+  display: flex;
+}
+
 .movie-poster {
   width: 100%;
   margin-bottom: 5px;
   border: 5px solid #fff;
   border-radius: 5px;
   cursor: pointer;
+  position: relative;
 }
-.movie-poster:hover {
+.movie:hover .movie-poster {
   border: 5px solid #8BC34A;
 }
 .movie-poster img {

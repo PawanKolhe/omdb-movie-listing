@@ -4,7 +4,7 @@
       <div @click="closeModal" class="modal-close"><span class="iconify" data-icon="fa-solid:times" data-inline="false"></span></div>
 
       <div>
-        <div class="modal-title">{{ title }} <span class="light">({{ movieDetail.Year }})</span></div>
+        <div class="modal-title">{{ title }} <span class="light">{{ movieDetail.Year ? '(' + movieDetail.Year + ')' : '' }}</span></div>
         <div v-if="movieDetail.imdbRating" class="imdbRating"><span class="imdb">IMDb</span>{{ movieDetail.imdbRating }}</div>
         <div v-if="movieDetail.Plot" class="modal-sub-container">
           <div class="modal-sub-title">Plot</div>

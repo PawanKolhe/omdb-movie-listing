@@ -5,7 +5,7 @@
       <div class="form-container">
         <div class="preview">
           <h3>Preview</h3>
-          <omdb-movie-card :title="title" :poster="getPoster" :modalDisable="true" />
+          <omdb-movie-card :title="title" :poster="poster" :modalDisable="true" />
         </div>
         <add-movie-form @titleChange="title = $event" @posterChange="poster = $event" @addMovie="addMovieToListing" :title="title" :poster="poster" />
       </div>
@@ -17,7 +17,7 @@
 import MovieCard from '../movie-listing/MovieCard.vue'
 import AddMovieForm from './AddMovieForm.vue'
 
-import DefaultImage from '../../assets/default-movie.png'
+// import DefaultImage from '../../assets/default-movie.png'
 
 export default {
   data() {
@@ -37,9 +37,6 @@ export default {
     }
   },
   computed: {
-    getPoster() {
-      return (this.poster ? this.poster : DefaultImage);
-    }
   }
 }
 </script>
