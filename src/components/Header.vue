@@ -2,6 +2,12 @@
   <div class="header">
     <div class="nav">
       <img class="logo" :src="logo">
+      <nav class="menu">
+        <a href="#">Browse</a>
+        <a href="#">Community</a>
+        <a href="#">Docs</a>
+        <a href="#">Contact</a>
+      </nav>
     </div>
   </div>
 </template>
@@ -31,11 +37,28 @@ export default {
 }
 
 .nav {
-  max-width: 1200px;
-  padding: 20px 80px;
+  max-width: 1400px;
+  padding: 20px 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-family-2);
+  font-size: 1.1rem;
+  padding: 20px;
+}
+.menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -48,6 +71,9 @@ export default {
   .nav {
     display: flex;
     justify-content: center;
+  }
+  .menu {
+    display: none;
   }
 }
 </style>

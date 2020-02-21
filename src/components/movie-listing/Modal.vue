@@ -4,7 +4,7 @@
       <div @click="closeModal" class="modal-close"><span class="iconify" data-icon="fa-solid:times" data-inline="false"></span></div>
 
       <div>
-        <div class="modal-title">{{ title }}</div>
+        <div class="modal-title">{{ title }} <span class="light">({{ movieDetail.Year }})</span></div>
         <div v-if="movieDetail.imdbRating" class="imdbRating"><span class="imdb">IMDb</span>{{ movieDetail.imdbRating }}</div>
         <div v-if="movieDetail.Plot" class="modal-sub-container">
           <div class="modal-sub-title">Plot</div>
@@ -24,8 +24,16 @@
               <div class="modal-sub-title">Actors</div>
               <div>{{ movieDetail.Actors }}</div>
             </div>
+            <div v-if="movieDetail.Production" class="modal-sub-container">
+              <div class="modal-sub-title">Production</div>
+              <div>{{ movieDetail.Production }}</div>
+            </div>
           </div>
           <div class="modal-col gs-modal-col-1">
+            <div v-if="movieDetail.Language" class="modal-sub-container">
+              <div class="modal-sub-title">Language</div>
+              <div>{{ movieDetail.Language }}</div>
+            </div>
             <div v-if="movieDetail.Runtime" class="modal-sub-container">
               <div class="modal-sub-title">Runtime</div>
               <div>{{ movieDetail.Runtime }}</div>
@@ -59,6 +67,10 @@ export default {
 </script>
 
 <style scoped>
+.light {
+  font-weight: lighter;
+}
+
 .modal-container {
   position: fixed;
   top: 0;
@@ -166,7 +178,7 @@ export default {
 }
 
 .imdbRating {
-  margin-top: 5px;
+  margin-top: 8px;
   background: #F5C518;
   color: #212121;
   font-weight: bold;

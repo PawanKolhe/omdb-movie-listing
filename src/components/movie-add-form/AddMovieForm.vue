@@ -115,17 +115,24 @@ export default {
   outline: none;
   border: 5px solid rgb(26, 65, 104);
 }
+.input-field:focus {
+  border: 5px solid rgb(41, 100, 158);
+}
 
 .button {
   font-size: 1.2rem;
   width: 100%;
   padding: 15px;
   color: #ffffff;
-  background-color: #1A4168;
+  background-color: rgb(26, 65, 104);
   outline: none;
   border: none;
   border-radius: 5px;
   border-bottom: 5px solid rgb(17, 45, 73);
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(30, 77, 124);
 }
 .button:active {
   transform: translateY(2px);
