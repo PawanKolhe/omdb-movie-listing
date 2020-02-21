@@ -51,7 +51,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`http://www.omdbapi.com/?i=${this.imdbID}&apikey=e0620bd4`)
+      .get(`https://www.omdbapi.com/?i=${this.imdbID}&apikey=e0620bd4`)
       .then(response => (this.movieDetail = response.data));
   }
 }

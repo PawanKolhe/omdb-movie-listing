@@ -31,7 +31,7 @@ export default {
   mounted() {
     // fetch movies data
     axios
-      .get('http://www.omdbapi.com/?s=harry%20potter&apikey=e0620bd4')
+      .get('https://www.omdbapi.com/?s=harry%20potter&apikey=e0620bd4')
       .then(response => {
         // filter out items that are not movies
         this.movies = response.data.Search.filter(movie => movie.Type == 'movie');
