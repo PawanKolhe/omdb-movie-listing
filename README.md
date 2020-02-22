@@ -1,13 +1,22 @@
 # Movito - OMDB Movie Listing
-This application makes use of Vue.js to implement listing of movies fetched from OMDB API
+Vue.js web application to implement listing of movies fetched from OMDB API
 
 ## Features
 - Responsive
-- Add new movies form
-- Popup with additional info and movie summary when clicking on a movie card
+- Popup with more info about movie when clicking on movie card
+- CSS Grid and Flexbox used
+- UI divided into Vue components
 - Uses Axios library to make an ajax call
+- Add new movies using form
+- Form validation
 
-![Screenshot](https://i.ibb.co/cb1qpgX/Capture.png)
+
+
+## Time Taken
+- **Learning VueJS**: 2 days  
+- **Making this project**: 1 day 
+
+![Screenshot](https://i.ibb.co/44t55ms/Movito-OMDB-Movie-Listing-1.png)
 
 ## Project setup
 ```
